@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="modelowanie" nsURI="http://www.example.org/modelowanie" nsPrefix="modelowanie">
+  <eClassifiers xsi:type="ecore:EClass" name="Router">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="komendy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//Interface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="komenda" upperBound="-1"
+        eType="#//Komenda"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pakiet" upperBound="-1"
+        eType="#//Pakiet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Komenda" abstract="true" interface="true">
+    <eOperations name="execute"/>
+    <eOperations name="addArgument"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nazwa" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Help" eSuperTypes="#//Komenda"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Show" eSuperTypes="#//Komenda"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ipAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pakiet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dane" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adresNadawcy" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adresOdbiorcy" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Przekierowanie" eSuperTypes="#//Komenda"/>
+</ecore:EPackage>
